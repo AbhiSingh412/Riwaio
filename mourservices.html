@@ -1,0 +1,179 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="utf-8" />  
+<title>My Slider</title>  
+<style type="text/css">  
+
+.showSlide {  
+  display: none; 
+}   
+        .slidercontainer {  
+            width: 100%;  
+            position: relative;  
+            margin: auto;  
+        }  
+        .left, .right {  
+            cursor: pointer;  
+            position: fixed;  
+            top: 20%;  
+            width: auto;  
+            padding: 16px;  
+            margin-top: -22px;  
+            color: white;  
+            font-weight: bold;  
+            font-size: 18px;  
+            transition: 0.6s ease;  
+            border-radius: 0 3px 3px 0;
+            background:#61c5db;
+            height:25px;
+        }  
+        .right {  
+            right: 6px;  
+            border-radius: 3px 0 0 3px;  
+        }  
+            .left:hover, .right:hover {  
+                background-color: rgba(115, 115, 115, 0.8);  
+            }  
+
+        .active {  
+            background-color: #717171;  
+        }  
+        /* Fading animation */  
+        .fade {  
+            -webkit-animation-name: fade;  
+            -webkit-animation-duration: 1.5s;  
+            animation-name: fade;  
+            animation-duration: 1.5s;  
+        }  
+        @-webkit-keyframes fade {  
+            from {  
+                opacity: .4  
+            }  
+            to {  
+                opacity: 1  
+            }  
+        }  
+  
+        @keyframes fade {  
+            from {  
+                opacity: .4  
+            }  
+            to {  
+                opacity: 1  
+            }  
+        } 
+
+.oneservice
+{
+  height:140px;
+  width:37.56%;
+  margin-left:30%;
+  background:#25ccdf;
+  border-radius:50%;
+}
+
+.oneserviceimg
+{
+  margin-left:11.991%; 
+  cursor:pointer;
+  width:90%;
+  height:110%;
+}
+
+.service
+{
+  width:100%;
+  background:#ccf3f8;
+  border-radius:12px;
+  font-family:Nexa;
+  margin-top:5%;
+}
+
+</style>  
+</head>  
+<body>  
+    <div class="slidercontainer">  
+        <div class="showSlide fade">  
+<div width="10%" class="oneservice npactive" id="oneservice1" onclick="changeservice('1');"><img src="./index_files/truck.png" class="oneserviceimg" /><span class="altinfo" id="altinfo1" style="position:relative;margin-left:30%;clear:both;font-weight:500;font-family:Nexa;font-size:18px;">MoveEasy</span></div>
+        </div>  
+        <div class="showSlide fade">  
+<div width="10%" class="oneservice" id="oneservice2" onclick="changeservice('2');"><img src="./index_files/truck.png" class="oneserviceimg" /><span class="altinfo" id="altinfo2" style="position:relative;margin-left:30%;clear:both;font-weight:500;font-family:Nexa;font-size:18px;">MoveMulti</span></div>
+        </div>
+        <div class="showSlide fade">  
+<div width="10%" class="oneservice" id="oneservice3" onclick="changeservice('3');"><img height="100%" width="100%" src="./index_files/truck.png" class="oneserviceimg" /><span class="altinfo" id="altinfo3" style="position:relative;margin-left:30%;clear:both;font-weight:500;font-family:Nexa;font-size:18px;">MoveHire</span></div>
+        </div>
+        <div class="showSlide fade">  
+<div width="10%" class="oneservice" id="oneservice4" onclick="changeservice('4');"><img src="./index_files/supertruck.png" class="oneserviceimg" /><span class="altinfo" id="altinfo4" style="position:relative;margin-left:30%;clear:both;font-weight:500;font-family:Nexa;font-size:18px;">MoveSuper</span></div>
+</div>
+        </div>
+        <!-- Navigation arrows -->  
+        <a class="left" onclick="nextSlide(-1)">❮</a>
+        <a class="right" onclick="nextSlide(1)">❯</a>
+    </div>  
+  
+<!-- Select Service Type -->
+
+<br><br><br />
+<!-- Select Service Type END -->
+
+<!-- Controller Boxes -->
+<div class="service" style="display:block;font-size:21px;">
+<div style="padding:15px 25px 15px 26px;"><center><img src="./index_files/moveasy.png" width="100px" height="100px" /></center>
+<p align="justify">MoveEasy service allows users to deliver goods in a single drop location with single pickup location which possibly makes fast and instant delivery.</p>
+</div>
+</div>
+
+<div class="service" style="display:none;font-size:18px;">
+<div style="padding:15px 25px 15px 26px;"><center><img src="./index_files/movemulti.png" width="100px" height="100px" /></center>
+<p align="justify">Multiple drop service allows users to deliver goods on multiple locations with single pick-up location<BR><BR> Multiple pickup service allows users to choose multiple pickup location for goods with single drop location 
+</p>
+</div>
+</div>
+
+<div class="service" style="display:none;font-size:20px;">
+<div style="padding:15px 25px 15px 26px;"><center><img src="./index_files/movehire.png" width="100px" height="100px" /></center>
+<p align="justify">
+MoveHire service allows users to rent available vehicle for speci<font face="calibiri">fi</font>c time period, enables users to work according to their time and desire, the charges will be according to duration of time in addition to per kilometer charge
+</p>
+</div>
+</div>
+
+<div class="service" style="display:none;font-size:21px;">
+<div style="padding:15px 25px 15px 26px;"><center><img src="./index_files/movesuper.png" width="100px" height="100px" /></center>
+<p align="justify">
+MoveSuper allows users to book a vehicle with a close container which gives users the surety to deliver their goods with safety and security
+</p>
+</div>
+</div>
+<!-- Controller Boxes END -->
+
+<script type="text/javascript">  
+        var slide_index = 1;  
+        displaySlides(slide_index);  
+  
+        function nextSlide(n) {  
+            displaySlides(slide_index += n);  
+        }  
+  
+        function currentSlide(n) {  
+            displaySlides(slide_index = n);  
+        }  
+  
+        function displaySlides(n) {  
+            var i;  
+            var slides = document.getElementsByClassName("showSlide");
+            var sliides = document.getElementsByClassName("service");
+            if (n > slides.length) { slide_index = 1 }  
+            if (n < 1) { slide_index = slides.length }  
+            for (i = 0; i < slides.length; i++) {  
+                slides[i].style.display = "none";  
+                sliides[i].style.display = "none";  
+            }  
+            slides[slide_index - 1].style.display = "block";  
+            sliides[slide_index - 1].style.display = "block";
+        }
+</script>  
+  
+</body>  
+</html> 
